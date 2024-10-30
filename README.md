@@ -5,7 +5,7 @@ This project implements an innovative security framework for monitoring and prot
 
 ## 🎯 Project Goals
 - Create an autonomous security monitoring system for sBTC transactions
-- Implement pattern-based attack detection
+- Implement sophisticated pattern-based attack detection
 - Develop automated defense mechanisms
 - Reduce reliance on external monitoring systems
 - Enhance overall sBTC network security
@@ -17,13 +17,29 @@ This project implements an innovative security framework for monitoring and prot
    - Tracks transaction history per user
    - Monitors transaction volumes and patterns
    - Implements threshold-based detection
+   - Records recent transaction history (last 10 transactions)
 
-2. **Threat Detection System**
+2. **Pattern Recognition System** [NEW]
+   - Transaction velocity monitoring
+   - Burst detection mechanism
+   - Historical pattern analysis
+   - Dynamic risk scoring
+   - Global statistics tracking
+
+3. **Risk Assessment Engine** [NEW]
+   - Multi-factor risk calculation
+   - Velocity-based risk analysis
+   - Burst pattern detection
+   - Combined risk scoring
+   - Configurable risk thresholds
+
+4. **Threat Detection System**
    - Pattern recognition for suspicious activities
    - Real-time threat assessment
    - Event logging and notification system
+   - High-risk transaction handling
 
-3. **Defense Mechanism**
+5. **Defense Mechanism**
    - Automated response triggers
    - Configurable defense strategies
    - Administrative override capabilities
@@ -74,58 +90,105 @@ clarinet deploy
 (contract-call? .sbtc-security-monitor get-transaction-history user-address)
 ```
 
+### Risk Scoring System [NEW]
+The system now includes sophisticated risk assessment mechanisms:
+
+1. **Velocity Risk**
+```clarity
+;; Monitors transaction volume over time
+(calculate-velocity-risk recent-transactions)
+```
+
+2. **Burst Risk**
+```clarity
+;; Detects rapid succession transactions
+(calculate-burst-risk recent-transactions)
+```
+
+3. **Combined Risk Score**
+- Aggregates multiple risk factors
+- Scale: 0-100 (100 being highest risk)
+- Threshold configurations available
+
 ## 🔐 Security Features
 
 ### Current Implementation
 - Transaction volume monitoring
-- Threshold-based detection
+- Advanced pattern recognition [NEW]
+- Risk scoring system [NEW]
 - Suspicious activity logging
 - Administrative controls
+- Global statistics tracking [NEW]
 
-### Planned Enhancements
-1. Advanced pattern recognition
-2. Machine learning integration
-3. Multi-signature defense mechanisms
-4. Network-wide threat correlation
-5. Automated mitigation strategies
+### Pattern Recognition Features [NEW]
+1. **Velocity Monitoring**
+   - Tracks transaction speed and volume
+   - Configurable time windows
+   - Dynamic threshold adjustment
+
+2. **Burst Detection**
+   - Identifies rapid transaction sequences
+   - Customizable burst thresholds
+   - Time-window analysis
+
+3. **Historical Analysis**
+   - Maintains recent transaction history
+   - Pattern matching algorithms
+   - Trend analysis
 
 ## 🚀 Development Roadmap
 
-### Phase 1: Foundation (Current)
+### Phase 1: Foundation ✓
 - Basic monitoring system
 - Transaction history tracking
 - Simple threshold detection
 
-### Phase 2: Enhanced Detection
-- Advanced pattern recognition
-- Historical analysis
-- Risk scoring system
+### Phase 2: Enhanced Detection [CURRENT]
+- ✓ Advanced pattern recognition
+- ✓ Historical analysis
+- ✓ Risk scoring system
+- ⚡ Integration with global statistics
+- ⚡ Machine learning preparation
 
-### Phase 3: Automated Defense
+### Phase 3: Automated Defense [UPCOMING]
 - Smart response mechanisms
 - Network protection protocols
 - Recovery procedures
 
 ## 🤝 Contributing
-Contributions are welcome! Please read the contributing guidelines before submitting pull requests.
+Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
 
 ### Branch Structure
 - `main`: Production-ready code
 - `develop`: Development branch
-- Feature branches: `feature/detection-enhancement`, `feature/defense-mechanism`, etc.
+- Feature branches: `feature/pattern-recognition`, `feature/risk-scoring`, etc.
 
-### Pull Request Process
-1. Create feature branch from `develop`
-2. Implement changes
-3. Submit PR with detailed description
-4. Await code review
-5. Merge after approval
+### Testing Requirements [NEW]
+1. **Unit Tests**
+   - Risk calculation functions
+   - Pattern recognition algorithms
+   - Transaction history management
+
+2. **Integration Tests**
+   - End-to-end transaction flow
+   - Risk assessment pipeline
+   - Pattern detection accuracy
 
 ## ⚠️ Security Considerations
 - Contract requires thorough security audit before mainnet deployment
 - Administrative functions restricted to authorized addresses
 - Regular monitoring of threshold parameters recommended
-- Defense mechanisms should be carefully tested in testnet
+- Risk scoring parameters should be carefully calibrated
+- Pattern recognition thresholds require periodic review [NEW]
+- Global statistics should be monitored for manipulation attempts [NEW]
+
+## 📊 Monitoring and Analytics [NEW]
+The system now provides:
+- Transaction velocity metrics
+- Risk score distribution
+- Pattern detection statistics
+- Global network statistics
+- High-risk account tracking
 
 ## 📄 License
 This project is licensed under the MIT License.
